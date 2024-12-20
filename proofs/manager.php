@@ -159,6 +159,10 @@ return static function() {
         }
     };
 
+    $dsn = Url::of('sqlite://'.\sys_get_temp_dir().'/example.sqlite');
+
+    yield from $sql($dsn, 'sqlite');
+
     $port = \getenv('DB_PORT') ?: '3306';
     $dsn = Url::of("mysql://root:root@127.0.0.1:$port/example");
 
